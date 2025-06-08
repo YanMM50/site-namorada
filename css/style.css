@@ -1,0 +1,135 @@
+body {
+    background: url('/images/pexels-photo-5874612.webp') no-repeat center center fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.central {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+    background: white;
+    border: 10px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px #000000;
+    padding: 20px;
+    margin: auto;
+}
+
+.central img {
+    width: 90vw;      /* ocupa até 90% da largura da tela */
+    max-width: 320px; /* nunca passa de 320px */
+    border-radius: 10%;
+    box-shadow: 3px 3px 10px #000000;
+}
+
+.central p {
+    font-size: 1.5em;
+    color: #000000;
+}
+
+/* Espaçamento menor em telas pequenas */
+@media (max-width: 600px) {
+    .central {
+        padding: 10px;
+        gap: 10px;
+    }
+    .buttons button {
+        font-size: 1em;
+        padding: 8px 16px;
+    }
+}
+
+.buttons button {
+    background-color: #e947ff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.5em;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 3px 3px 10px #000000;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.buttons button:hover {
+    background-color: #f8cbe7;
+    color: #e947ff;
+}
+
+.buttons button:active {
+    transform: scale(0.95);
+    box-shadow: 1px 1px 5px #000000;
+    transition: transform 0.1s;
+}
+ 
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+}
+
+.fade-in {
+    opacity: 1;
+    transition: opacity 0.5s;
+}
+.slide-in {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 0.5s, transform 0.5s;
+}
+.zoom-in {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 0.5s, transform 0.5s;
+}
+.fade-out, .slide-out, .zoom-out {
+    opacity: 0;
+    transition: opacity 0.5s, transform 0.5s;
+}
+.slide-out {
+    transform: translateX(100px);
+}
+.zoom-out {
+    transform: scale(0.7);
+}
+
+.hearts-bg {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.heart {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: url('../images/coracao.png') no-repeat center/contain;
+    opacity: 0.7;
+    animation: floatHearts 6s linear infinite;
+}
+
+@keyframes floatHearts {
+    0% {
+        transform: translateY(100vh) scale(0.8) rotate(0deg);
+        opacity: 0.7;
+    }
+    80% {
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(-10vh) scale(1.2) rotate(360deg);
+        opacity: 0;
+    }
+}
